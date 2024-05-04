@@ -1,12 +1,10 @@
-<header>
-  <p>Página inicial de {{title}}</p>
+<main class="d-flex flex-nowrap">
+  <app-sidebar></app-sidebar>
   <ul>
-  <li><a routerLink="">Inicio</a></li>
-  <li><a routerLink="/login">Login</a></li>
-  <li><a routerLink="/registro">Registro</a></li>
+    <li><a routerLink="">Inicio</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/registro">Registro</a></li>
   </ul>
-  </header>
+  <div class="b-example-divider b-example-vr"></div>
   <router-outlet></router-outlet>
-  <footer>
-  <p>{{footer}}</p>
-  </footer>
+</main>
