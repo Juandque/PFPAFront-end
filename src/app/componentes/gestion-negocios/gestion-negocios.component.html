@@ -1,0 +1,63 @@
+<main class="d-flex flex-nowrap">
+    <app-sidebar></app-sidebar>
+    <div class="d-flex flex-column flex-shrink-0" style="width: 50rem;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-header ps-5 pt-4 pb-4">
+                    <h5 class="mb-0"><i class="fa-solid fa-location-dot me-3"></i>Tus Negocios</h5>
+                </div>
+                @for (item of negocios; track $index) {
+                <div class="container">
+                    <div class="row">
+                        <div class="flex-column mb-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{item.nombre}}</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-sm-12">
+                                                <p class="card-text">{{item.calificacionPromedio}} Estrellas
+                                                    ({{item.numeroCalificaciones}})</p>
+                                                <p class="card-type">{{item.tipoNegocio}}</p>
+                                                <p class="card-text">{{item.estadoActual}}: Cierra a las
+                                                    {{item.horaCierre}}</p>
+                                                <p class="card-text">Dirección: {{item.direccion}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-sm-12">
+                                                <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+                                                    <div class="carousel-inner">
+                                                        @for (imagen of item.imagenes; track $index){
+                                                        <div class="carousel-item active">
+                                                            <img src={{imagen}} class="d-block w-100" alt="">
+                                                        </div>
+                                                        }
+                                                    </div>
+                                                    <button class="carousel-control-prev" type="button"
+                                                        data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button"
+                                                        data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            <div class="text-center">
+                <a href="#" class="btn btn-custom">Añadir</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
