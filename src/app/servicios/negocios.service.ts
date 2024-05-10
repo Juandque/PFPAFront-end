@@ -11,17 +11,53 @@ export class NegociosService {
   negocios: ItemListarNegociosDTO[];
   constructor() {
     this.negocios = [];
-    this.negocios.push( new ItemListarNegociosDTO('1', 'Bar Armenia', 4, 30,
-    TipoNegocio.BAR, '10:00', 'Cerrado', 'Calle N#20', ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
+    this.negocios.push( 
+      new ItemListarNegociosDTO(
+        '1', 
+        'Bar Armenia', 
+        4, 
+        30,
+        'BAR', 
+        '10:00', 
+        'Cerrado', 
+        'Calle N#20', 
+        ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
 
-    this.negocios.push( new ItemListarNegociosDTO('2', 'Restaurante Italiano', 4, 30,
-    TipoNegocio.RESTAURANTE, '10:00', 'Cerrado', 'Calle N#20', ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
+    this.negocios.push( 
+      new ItemListarNegociosDTO(
+        '2', 
+        'Restaurante Italiano', 
+        4, 
+        30,
+        'RESTAURANTE', 
+        '10:00', 
+        'Cerrado', 
+        'Calle N#20', 
+        ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
 
-    this.negocios.push( new ItemListarNegociosDTO('3', 'Peluqueria Peluche', 4, 30,
-    TipoNegocio.PELUQUERIA, '10:00', 'Cerrado', 'Calle N#20', ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
+    this.negocios.push( 
+      new ItemListarNegociosDTO(
+        '3', 
+        'Peluqueria Peluche', 
+        4, 
+        30,
+        'PELUQUERIA', 
+        '10:00', 
+        'Cerrado', 
+        'Calle N#20', 
+        ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
 
-    this.negocios.push( new ItemListarNegociosDTO('4', 'Hotel Peligroso', 4, 30,
-    TipoNegocio.OTRO, '10:00', 'Cerrado', 'Calle N#20', ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
+    this.negocios.push( 
+      new ItemListarNegociosDTO(
+        '4', 
+        'Hotel Peligroso', 
+        4, 
+        30,
+        'OTRO', 
+        '10:00', 
+        'Cerrado', 
+        'Calle N#20', 
+        ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
    }
 
   public listar(): ItemListarNegociosDTO[] {

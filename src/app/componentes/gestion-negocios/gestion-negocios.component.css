@@ -1,7 +1,7 @@
 .card {
-    background-color: #f8f9fa;
-    border-radius: 2px;
-    box-shadow: 0 0px 2px rgb(255, 255, 255);
+    background-color: #fff;
+    border-radius: 0px;
+    border-color: #fff;
 }
 
 .card-body {
@@ -19,7 +19,8 @@
     line-height: 1.5;
     font-family: Roboto, sans-serif;
 }
-.card-type{
+
+.card-type {
     font-size: 14px;
     line-height: 1.5;
     font-family: Roboto, sans-serif;
@@ -38,9 +39,15 @@
 .btn-primary:hover {
     background-color: #0056b3
 }
+
 .btn-custom {
-    background-color: #d3d3d3; /* Orange color */
+    background-color: #d3d3d3;
+    /* Orange color */
     border-radius: 20px;
     border-color: #d3d3d3;
-    color: black; /* White text */
-  }
+    color: black;
+    /* White text */
+}
+hr{
+    border-spacing: 2px;
+}

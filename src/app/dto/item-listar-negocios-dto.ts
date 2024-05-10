@@ -6,7 +6,7 @@ export class ItemListarNegociosDTO {
         public nombre: string='',
         public calificacionPromedio: number=0,
         public numeroCalificaciones: number=0,
-        public tipoNegocio: TipoNegocio,
+        public tipoNegocio: string='',
         public horaCierre: string='',
         public estadoActual: string='',
         public direccion: string='',
