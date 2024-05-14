@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CrearNegocioDTO } from '../../dto/crear-negocio-dto';
 import { NegociosService } from '../../servicios/negocios.service';
-import { FormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Horario } from '../../models/horario';
 import { SidebarComponent } from '../sidebar/sidebar.component';
@@ -25,13 +25,14 @@ export class CrearNegocioComponent {
   constructor(private negocioService: NegociosService) {
     this.crearNegocioDTO = new CrearNegocioDTO();
     this.horarios = [new Horario()];
-    this.telefonos = [""];
+    this.telefonos = [""]
     this.tiposNegocio = [];
     this.cargarTiposNegocio();
   }
 
   public crearNegocio() {
     this.crearNegocioDTO.horarios = this.horarios;
+    this.crearNegocioDTO.telefonos= this.telefonos;
     this.negocioService.crear(this.crearNegocioDTO);
     console.log(this.crearNegocioDTO);
   }

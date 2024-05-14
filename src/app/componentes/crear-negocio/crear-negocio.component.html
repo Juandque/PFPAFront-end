@@ -94,7 +94,7 @@
                     <div class="col-md-4">
                         <div class="mb-3 ">
                             <label class="col-sm-2 col-form-label" style="color: #355B3E;">Direccion: </label>
-                            <div class="col-sm-10">
+                            <div class="row">
                                 <input #direccion="ngModel" class="form-control" type="text" name="direccion"
                                     [(ngModel)]="crearNegocioDTO.direccion" required="true" maxlength="50" />
                             </div>
@@ -102,13 +102,9 @@
                         <div class="mb-3">
                             <label class="col-sm-2 col-form-label" style="color: #355B3E;"> Telefonos: </label>
                             <div class="row">
-                                @for(item of telefonos; track $index){
-                                <div class="col-sm-8">
-                                    <input class="form-control" placeholder="Telefono" type="text"
-                                        name="telefono-{{$index}}" [(ngModel)]="crearNegocioDTO.telefonos[$index]"
-                                        required />
+                                <div class="col-sm-8" *ngFor="let telefono of telefonos; let i=index">
+                                    <input class="form-control" placeholder="telefono" type="text" name="telefono-{{i}}" [(ngModel)]="telefonos[i]" required/>
                                 </div>
-                                }
                                 <div class="col-sm-2 text-end ">
                                     <button class="btn btn-primary" (click)="agregarTelefono()">
                                         <i class="fa-solid fa-circle-plus me-1"></i>
@@ -124,7 +120,7 @@
         <div class="row">
             <div class="col">
                 <div class="text-center">
-                    <button class="btn btn-custom" (click)="crearNegocio()" [disabled]="f.invalid">
+                    <button class="btn btn-custom" (click)="crearNegocio()">
                         Crear Negocio
                     </button>
                 </div>
