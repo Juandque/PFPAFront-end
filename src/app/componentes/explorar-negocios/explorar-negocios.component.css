@@ -48,14 +48,10 @@
     color: black;
     /* White text */
 }
-
-hr {
+hr{
     border-spacing: 2px;
 }
-
 .scrollable-container {
-    max-height: 920px;
-    /* ajusta según sea necesario */
-    overflow-y: auto;
-    /* habilita el scroll vertical cuando sea necesario */
+    max-height: 920px; /* ajusta según sea necesario */
+    overflow-y: auto; /* habilita el scroll vertical cuando sea necesario */
 }

@@ -4,7 +4,7 @@
         <div class="row ps-3">
             <div class="col-md-4 mb-4 scrollable-container rounded-1">
                 <div class="card-header ps-5 pt-4 pb-4 text-center">
-                    <h5 class="mb-0">Tus Negocios</h5>
+                    <h5 class="mb-0">Tus Lugares Favoritos</h5>
                 </div>
                 <hr>
                 @for (item of negocios; track $index) {
@@ -13,8 +13,12 @@
                         <div class="flex-column mb-auto">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title" routerLink="/detalle-negocio-propietario/{{item.codigo}}">
-                                        {{item.nombre}}</h5>
+                                    <h5 class="card-title" routerLink="/detalle-negocio-propietario/{{item.codigo}}"> {{item.nombre}}</h5>
+                                    <div class="position-absolute top-0 end-0">
+                                        <button class="btn btn-succes" (click)="agregarFavorito()">
+                                            <i class="fa-solid fa fa-bookmark me-1"></i>
+                                        </button>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-sm-12">
@@ -28,27 +32,24 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="col-sm-12">
-                                                <div id="carouselExampleRide-{{$index}}" class="carousel slide"
-                                                    data-bs-ride="true">
+                                                <div id="carouselExampleRide-{{$index}}" class="carousel slide" data-bs-ride="true">
                                                     <div class="carousel-inner">
                                                         @for (imagen of item.imagenes; track $index){
-                                                        <div class="carousel-item" [ngClass]="$index==0 ? 'active': ''">
+                                                        <div class="carousel-item" [ngClass]="$index==0 ? 'active': ''" >
                                                             <img src={{imagen}} class="d-block w-100" alt="">
                                                         </div>
                                                         }
                                                     </div>
                                                     <button class="carousel-control-prev" type="button"
                                                         [attr.data-bs-target]="'#carouselExampleRide-'+$index"
-                                                        data-bs-slide="prev">
-                                                        <span class="carousel-control-prev-icon"
-                                                            aria-hidden="true"></span>
+                                                         data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                         <span class="visually-hidden">Previous</span>
                                                     </button>
                                                     <button class="carousel-control-next" type="button"
                                                         [attr.data-bs-target]="'#carouselExampleRide-'+$index"
                                                         data-bs-slide="next">
-                                                        <span class="carousel-control-next-icon"
-                                                            aria-hidden="true"></span>
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                         <span class="visually-hidden">Next</span>
                                                     </button>
                                                 </div>
@@ -62,9 +63,6 @@
                 </div>
                 <hr>
                 }
-                <div class="text-center">
-                    <a routerLink="/crear-negocio" class="btn btn-custom">Añadir</a>
-                </div>
             </div>
         </div>
     </div>
