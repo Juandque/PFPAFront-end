@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ItemListarNegociosDTO } from '../dto/item-listar-negocios-dto';
 import { CrearNegocioDTO } from '../dto/crear-negocio-dto';
 import { Ubicacion } from '../models/ubicacion';
-import { TipoNegocio } from '../models/tipo-negocio';
 import { DetalleNegocioDTO } from '../dto/detalle-negocio-dto';
 import { ItemNegocioInfoDTO } from '../dto/item-negocio-info-dto';
 import { Horario } from '../models/horario';

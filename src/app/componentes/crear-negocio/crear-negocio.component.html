@@ -1,6 +1,6 @@
 <main class="d-flex flex-nowrap">
     <app-sidebar></app-sidebar>
-    <div class="d-flex flex-column flex-shrink-0" style="width: 91rem;">
+    <div class="d-flex flex-column flex-shrink-0" style="flex-grow: 1;">
         <div class="card-header ps-5 pt-4 pb-4 text-center card-title">
             <h5 class="mb-0">Crea tu Negocio</h5>
         </div>
@@ -51,7 +51,7 @@
                                 <textarea #descripcion="ngModel" class="form-control"
                                     [ngClass]="descripcion.invalid && descripcion.dirty? 'is-invalid' : '' " type="text"
                                     name="descripcion" [(ngModel)]="crearNegocioDTO.descripcion" required="true">
-                            </textarea>
+                                </textarea>
                             </div>
                         </div>
                         <div class="mb-3">
