@@ -3,12 +3,17 @@ import { ItemListarNegociosDTO } from '../dto/item-listar-negocios-dto';
 import { CrearNegocioDTO } from '../dto/crear-negocio-dto';
 import { Ubicacion } from '../models/ubicacion';
 import { TipoNegocio } from '../models/tipo-negocio';
+import { DetalleNegocioDTO } from '../dto/detalle-negocio-dto';
+import { ItemNegocioInfoDTO } from '../dto/item-negocio-info-dto';
+import { Horario } from '../models/horario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NegociosService {
   negocios: ItemListarNegociosDTO[];
+  negociosDetalle: DetalleNegocioDTO[];
+  negociosInfo: ItemNegocioInfoDTO[];
   constructor() {
     this.negocios = [];
     this.negocios.push( 
@@ -58,6 +63,31 @@ export class NegociosService {
         'Cerrado', 
         'Calle N#20', 
         ['https://picsum.photos/100', 'https://picsum.photos/101', 'https://picsum.photos/102', 'https://picsum.photos/103'] ) );
+    this.negociosDetalle=[];
+    this.negociosDetalle.push(new DetalleNegocioDTO('1', 'El Arriero', 4, 65, 'Restaurante', '10:00', 'Abierto', ['https://picsum.photos/101','https://picsum.photos/102']));
+    this.negociosDetalle.push(new DetalleNegocioDTO('2', 'Pizzeria La Fornace', 4, 65, 'Restaurante', '10:00', 'Abierto', ['https://picsum.photos/104','https://picsum.photos/100']))
+    
+    let hora: Date= new Date();
+    hora.setFullYear(2000);
+    hora.setMonth(1);
+    hora.setDate(1);
+    hora.setHours(17);
+    hora.setMinutes(30);
+    hora.setSeconds(0);
+
+    let hora2: Date = new Date();
+    hora2.setFullYear(2000);
+    hora2.setMonth(1);
+    hora2.setDate(1);
+    hora2.setHours(21);
+    hora2.setMinutes(45);
+    hora2.setSeconds(0);
+
+    this.negociosInfo=[];
+    this.negociosInfo.push(new ItemNegocioInfoDTO('1', 
+    'En el restarurante EL arriero ofrecemos el mejor servicio a nuestros clientes con los mejores platillosde la ciudad, nuestros cocineros con años de experiencia han desarrollado un sazon inigualable. Esperamos que puedas disfrutar de nuestra atencion Te esperamos en Calle 20 Norte Armenia',
+    'Calle 20 Norte Armenia',
+    ['2132132431213','12231323212321'],[new Horario('Lunes', hora, hora2), new Horario('Jueves', hora, hora2)]))
    }
 
   public listar(): ItemListarNegociosDTO[] {
@@ -75,5 +105,13 @@ export class NegociosService {
 
   public eliminar(codigo: string){
     this.negocios = this.negocios.filter(n => n.codigo !== codigo);
+  }
+
+  public listarDetalle(){
+    return this.negociosDetalle[0];
+  }
+
+  public listarInfo(){
+    return this.negociosInfo[0];
   }
 }
