@@ -1,34 +1,36 @@
 <main class="d-flex flex-nowrap">
     <app-sidebar></app-sidebar>
-    <div class="d-flex flex-column flex-shrink-0" style="flex-grow: 1;">
+    <div class="d-flex flex-column flex-shrink-0">
         <div class="row ps-3">
-            <div class="col-md-4 mb-4 scrollable-container rounded-1">
+            <div class="col-md-12 mb-4 scrollable-container rounded-1">
                 <div class="card-header ps-5 pt-4 pb-4 text-center">
                     <h5 class="mb-0">Explora Lugares en Tu Zona</h5>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-sm-5 mb-3">
-                        <select class="form-select" required>
-                            <option value="" selected>Seleccione una opcion</option>
-                            <option value="" >KM</option>
-                            <option value="" >Mill</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-5 mb-3">
-                        <input 
-                        #rango="ngModel" 
-                        class="form-control" 
-                        [ngClass]="rango.invalid && rango.dirty? 'is-invalid' : '' " 
-                        type="number" 
-                        name="rango" 
-                        [(ngModel)]="obtenerDistanciaDTO.rango" 
-                        required/>
-                    </div>
-                    <div class="col-sm-2 mb-3 text-center">
-                        <button class="btn btn-custom" (click)="obtenerDistancia()">
-                            <i class="fa-solid fa-search me-1"></i>
-                        </button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5 mb-3">
+                            <select class="form-select" required>
+                                <option value="" selected>Seleccione una opcion</option>
+                                <option value="" >KM</option>
+                                <option value="" >Mill</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5 mb-3">
+                            <input 
+                            #rango="ngModel" 
+                            class="form-control" 
+                            [ngClass]="rango.invalid && rango.dirty? 'is-invalid' : '' " 
+                            type="number" 
+                            name="rango" 
+                            [(ngModel)]="obtenerDistanciaDTO.rango" 
+                            required/>
+                        </div>
+                        <div class="col-sm-2 mb-3 text-center">
+                            <button class="btn btn-custom" (click)="obtenerDistancia()">
+                                <i class="fa-solid fa-search me-1"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 @for (item of negocios; track $index) {
@@ -85,4 +87,5 @@
             </div>
         </div>
     </div>
+    <div id="mapa" class="d-flex flex-column flex-shrink-0" style="flex-grow: 1;"></div>
 </main>
