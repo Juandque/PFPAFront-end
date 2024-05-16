@@ -4,6 +4,7 @@ import { NegociosService } from '../../servicios/negocios.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { MapaService } from '../../servicios/mapa.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -15,7 +16,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 export class FavoritosComponent {
   negocios: ItemListarNegociosDTO[];
 
-  constructor(private negocioService: NegociosService){
+  constructor(private negocioService: NegociosService, private mapaService: MapaService){
     this.negocios=[];
     this.listarNegocios();
   }
@@ -26,5 +27,9 @@ export class FavoritosComponent {
 
   public agregarFavorito(){
     console.log("Agregar a favorito")
+  }
+
+  ngOnInit():void{
+    this.mapaService.crearMapa();
   }
 }

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ItemListarNegociosDTO } from '../../dto/item-listar-negocios-dto';
 import { NegociosService } from '../../servicios/negocios.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { MapaService } from '../../servicios/mapa.service';
 
 @Component({
   selector: 'app-gestion-negocios',
@@ -15,13 +16,17 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 export class GestionNegociosComponent {
   negocios: ItemListarNegociosDTO[];
 
-  constructor(private negocioService: NegociosService){
+  constructor(private negocioService: NegociosService, private mapaService: MapaService){
     this.negocios=[];
     this.listarNegocios();
   }
 
   public listarNegocios(){
     this.negocios=this.negocioService.listar();
+  }
+
+  ngOnInit():void{
+    this.mapaService.crearMapa();
   }
 
 }

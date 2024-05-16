@@ -5,6 +5,7 @@ import { FormArray, FormControl, FormGroup, FormsModule, Validators } from '@ang
 import { CommonModule } from '@angular/common';
 import { Horario } from '../../models/horario';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { MapaService } from '../../servicios/mapa.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class CrearNegocioComponent {
   tiposNegocio: string[];
 
 
-  constructor(private negocioService: NegociosService) {
+  constructor(private negocioService: NegociosService, private mapaService: MapaService) {
     this.crearNegocioDTO = new CrearNegocioDTO();
     this.horarios = [new Horario()];
     this.telefonos = [""]
@@ -56,5 +57,13 @@ export class CrearNegocioComponent {
 
   private cargarTiposNegocio() {
     this.tiposNegocio = ["PANADERIA", "RESTAURANTE", "LIBRERIA", "GIMNASIO", "CAFETERIA", "BAR", "DISCOTECA", "PELUQUERIA", "SUPERMERCADO", "TIENDA", "OTRO"];
+  }
+
+  ngOnInit():void{
+    this.mapaService.crearMapa();
+    this.mapaService.agregarMarcador().subscribe((marcador) =>{
+      this.crearNegocioDTO.ubicacion.latitud= marcador.lat;
+      this.crearNegocioDTO.ubicacion.longitud= marcador.log;
+    });
   }
 }
